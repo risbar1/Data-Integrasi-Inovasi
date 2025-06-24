@@ -39,6 +39,12 @@ exports.getAll = async (req, res) => {
 exports.create = async (req, res) => {
   const { quota, status, dokterid, date, day, time_start, time_finish } = req.body;
 
+  // validasi tidak boleh lebih kecil time
+  if(time_start.substring(0, 2) > time_finish.substring(0, 2) ) {
+    return res.json({ message: 'time_start tidak boleh lebih besar dari time_finish' });
+  }
+  // validasi tidak boleh lebih kecil time
+
   // validasi dokter
   const countdokter = await Dokter.findAndCountAll({
   where: {
@@ -62,6 +68,8 @@ exports.create = async (req, res) => {
     return res.json({ message: 'Data Tidak ada di table referensi Day' });
   }
   // validasi day
+
+
 
   const newJadwaldokter = await Jadwaldokter.create({ quota, status, dokterid, date, day, time_start, time_finish });
   res.json(newJadwaldokter);
