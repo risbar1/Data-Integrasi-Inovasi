@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "34839433-1878-427e-88c9-ae48e25dfcb0",
+		"name": "Soal Backend Dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17711570"
+	},
+	"item": [
+		{
+			"name": "jadwaldokter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJyaXNreSIsImlhdCI6MTc1MDczNzg2OSwiZXhwIjoxNzUwNzQxNDY5fQ.thzUueQ5V7GPcRN0zOPY6xhQqWbdfJRKzlxVyZqjOag",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/jadwaldokter?date_range_start=2024-01-01&date_range_finish=2027-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jadwaldokter"
+					],
+					"query": [
+						{
+							"key": "date_range_start",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "date_range_finish",
+							"value": "2027-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dokter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJyaXNreSIsImlhdCI6MTc1MDczNDIxNCwiZXhwIjoxNzUwNzM3ODE0fQ.kN_63P7SHduQKEMniVBUSUhZaKXR4vixKb-TS9JwqCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/dokter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dokter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "jadwaldokter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJyaXNreSIsImlhdCI6MTc1MDczNzg2OSwiZXhwIjoxNzUwNzQxNDY5fQ.thzUueQ5V7GPcRN0zOPY6xhQqWbdfJRKzlxVyZqjOag",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quota\": \"10\",\r\n    \"status\":\"true\",\r\n    \"dokterid\":\"3\",\r\n    \"date\":\"2025-04-01\",\r\n    \"day\":\"senenn\",\r\n    \"time_start\" : \"10:00\",\r\n    \"time_finish\" : \"15:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/jadwaldokter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jadwaldokter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"risky\",\r\n    \"password\" : \"risky\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
