@@ -12,7 +12,10 @@ const Jadwaldokter = sequelize.define('jadwal_dokter', {
     defaultValue: DataTypes.NOW,
     allowNull: false,
   },
-  dockerid: {
+  dokterid: {
+    type: DataTypes.INTEGER,
+  },
+  quota: {
     type: DataTypes.INTEGER,
   },
   status: {

@@ -19,7 +19,7 @@ app.use(express.json());
 
 
 // Route
-app.use('/jadwaldokter', jadwaldokterRoutes);
+app.use('/jadwaldokter', authenticate, jadwaldokterRoutes);
 app.use('/dokter', authenticate ,dokterRoutes);
 app.use('/login', loginRoutes);
 // npm run start
