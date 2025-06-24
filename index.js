@@ -1,8 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
+
+
 const sequelize = require('./models/koneksi');
 const jadwaldokterRoutes = require('./routes/jadwaldokter');
 const dokterRoutes  = require('./routes/dokter');
+const loginRoutes  = require('./routes/login');
+const authenticate  = require('./middleware/auth');
+
+
+
 
 dotenv.config();
 const app = express();
@@ -10,10 +17,11 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+
 // Route
 app.use('/jadwaldokter', jadwaldokterRoutes);
-app.use('/dokter', dokterRoutes);
-
+app.use('/dokter', authenticate ,dokterRoutes);
+app.use('/login', loginRoutes);
 // npm run start
 
 // Sync database
