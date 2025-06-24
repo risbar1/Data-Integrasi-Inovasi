@@ -1,4 +1,4 @@
-const Jadwaldosen = require('../models/Jadwaldosen');
+const Jadwaldosen = require('../models/Jadwaldokter');
 
 exports.getAll = async (req, res) => {
   const jadwaldosens = await Jadwaldosen.findAll();

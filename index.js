@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const sequelize = require('./models/index');
+const sequelize = require('./models/koneksi');
 const jadwaldokterRoutes = require('./routes/jadwaldokter');
 
 dotenv.config();

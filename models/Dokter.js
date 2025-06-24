@@ -1,11 +1,14 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('./index');
+const sequelize = require('./koneksi');
 
-const Jadwaldosen = sequelize.define('jadwal_dosen', {
+const Jadwaldosen = sequelize.define('dokter', {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
+  },
+  nama : {
+    type: DataTypes.STRING,
   },
   createdAt: {
     type: DataTypes.DATE,
@@ -16,7 +19,9 @@ const Jadwaldosen = sequelize.define('jadwal_dosen', {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
     allowNull: false,
-  },
-});
+  }
+}, {
+      freezeTableName: true,
+  });
 
 module.exports = Jadwaldosen;
