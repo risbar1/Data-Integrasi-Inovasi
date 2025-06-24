@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./koneksi');
 
-const Jadwaldosen = sequelize.define('dokter', {
+const Dokter = sequelize.define('dokter', {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -24,4 +24,4 @@ const Jadwaldosen = sequelize.define('dokter', {
       freezeTableName: true,
   });
 
-module.exports = Jadwaldosen;
+module.exports = Dokter;

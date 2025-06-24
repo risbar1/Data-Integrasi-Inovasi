@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const sequelize = require('./models/koneksi');
 const jadwaldokterRoutes = require('./routes/jadwaldokter');
+const dokterRoutes  = require('./routes/dokter');
 
 dotenv.config();
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 
 // Route
 app.use('/jadwaldokter', jadwaldokterRoutes);
+app.use('/dokter', dokterRoutes);
 
 // npm run start
 
