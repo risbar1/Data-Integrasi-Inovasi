@@ -5,6 +5,10 @@ Dokter.hasMany(Jadwaldokter, { foreignKey: "id" });
 Jadwaldokter.belongsTo(Dokter, { foreignKey: "dokterid" }); 
 
 exports.getAll = async (req, res) => {
+  const { Op } = require('sequelize');
+  const startDate = req.query.date_range_start;
+  const endDate = req.query.date_range_finish;
+
   const jadwaldokters = await Jadwaldokter.findAll({
   include: [
     {
@@ -14,6 +18,11 @@ exports.getAll = async (req, res) => {
       }
     ],
     attributes: ["quota","status","id","createdAt","updatedAt","dokterid","date","day","time_start","time_finish"],
+    where: {
+    date: {
+      [Op.between]: [startDate, endDate],
+    },
+    },
     raw: true,
     nest: false,  
   });
