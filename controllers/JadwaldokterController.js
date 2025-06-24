@@ -14,7 +14,9 @@ exports.getAll = async (req, res) => {
       }
     ],
     attributes: ["quota","status","id","createdAt","updatedAt","dokterid","date","day","time_start","time_finish"],
-    });
+    raw: true,
+    nest: false,  
+  });
   res.json(jadwaldokters);
 };
 
