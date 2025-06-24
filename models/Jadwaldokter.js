@@ -40,6 +40,7 @@ const Jadwaldokter = sequelize.define('jadwal_dokter', {
   }
 }, {
       freezeTableName: true,
+      timestamps: true,
   });
 
 module.exports = Jadwaldokter;

@@ -1,5 +1,6 @@
 const Jadwaldokter = require('../models/Jadwaldokter');
 const Dokter = require('../models/Dokter');
+const Day = require('../models/Day');
 
 Dokter.hasMany(Jadwaldokter, { foreignKey: "id" });  
 Jadwaldokter.belongsTo(Dokter, { foreignKey: "dokterid" }); 
@@ -36,8 +37,33 @@ exports.getAll = async (req, res) => {
 // };
 
 exports.create = async (req, res) => {
-  const { name, price } = req.body;
-  const newJadwaldokter = await Jadwaldokter.create({ name, price });
+  const { quota, status, dokterid, date, day, time_start, time_finish } = req.body;
+
+  // validasi dokter
+  const countdokter = await Dokter.findAndCountAll({
+  where: {
+    id: dokterid
+  },
+});
+  if (countdokter.count  === 0) {
+    return res.json({ message: 'Data Tidak ada di table referensi Dokter' });
+  }
+  // validasi dokter
+
+
+  
+  // validasi day
+  const countday = await Day.findAndCountAll({
+      where: {
+        nama: day
+      },
+    });
+  if (countday.count === 0) {
+    return res.json({ message: 'Data Tidak ada di table referensi Day' });
+  }
+  // validasi day
+
+  const newJadwaldokter = await Jadwaldokter.create({ quota, status, dokterid, date, day, time_start, time_finish });
   res.json(newJadwaldokter);
 };
 
